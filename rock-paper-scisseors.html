@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rock-paper-scissers</title>
+    <link rel="stylesheet" href="rps.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="header">
+            <p>Rock Paper Scissers</p>
+        </div>
+
+        <div class="buttons">
+            <button class="rock" onclick="
+            
+            pickComptermove();
+            
+            if(computerMove=='Rock') {
+                result='Tied.';
+            }else if(computerMove=='Paper') {
+                result='You are lose.';
+            }else if(computerMove=='Scissers') {
+                result='You are win';
+            }
+            
+            if (computerMove == 'Scissers') {
+                getMarks.Wins = getMarks.Wins + 1;
+            } else if (computerMove == 'Paper') {
+                getMarks.Losses = getMarks.Losses + 1;
+            } else if (computerMove == 'Rock' ) {
+                getMarks.Ties = getMarks.Ties + 1;
+            }
+            console.log(getMarks);
+            
+
+            alert(`You choosed Rock. Computer choosed ${computerMove}\n ${result}\nWins:${getMarks.Wins} Losses:${getMarks.Losses} Ties:${getMarks.Ties}`);
+            
+            console.log(result);
+            
+
+            
+            "><img src="Img/images (1).png" class="r-img"></button>
+            <button class="paper" onclick="
+            
+            pickComptermove();
+        
+            if(computerMove=='Rock') {
+                result='You are win.';       
+            }else if(computerMove=='Paper') {
+                result='Tied.';    
+            }else if(computerMove=='Scissers') {
+                result='You are lose.';  
+            }
+
+            if (computerMove == 'Rock') {
+                getMarks.Wins = getMarks.Wins + 1;
+            } else if (computerMove == 'Scissers') {
+                getMarks.Losses = getMarks.Losses + 1;
+            } else if (computerMove == 'Paper' ) {
+                getMarks.Ties = getMarks.Ties + 1;
+            }
+            console.log(getMarks);
+            
+            alert(`You choosed Paper. Computer choosed ${computerMove}\n${result}\nWins:${getMarks.Wins} Losses:${getMarks.Losses} Ties:${getMarks.Ties} `);
+            console.log(result);
+            
+            "><img src="Img/download.png" class="p-img">
+
+                <button class="scisser" onclick="
+           
+            pickComptermove();
+            
+            if(computerMove=='Rock') {
+                result='You are lose.';    
+            }else if(computerMove=='Paper') {
+                result='You are Win.';    
+            }else if(computerMove=='Scissers') {
+                result='Tied.';    
+            }
+
+            if (computerMove == 'Paper') {
+                getMarks.Wins = getMarks.Wins + 1;
+            } else if (computerMove == 'Rock') {
+                getMarks.Losses = getMarks.Losses + 1;
+            } else if (computerMove == 'Scissers' ) {
+                getMarks.Ties = getMarks.Ties + 1;
+            }
+            console.log(getMarks);
+
+            alert(`You choosed Scissers. Computer choosed ${computerMove}\n${result}\nWins:${getMarks.Wins} Losses:${getMarks.Losses} Ties:${getMarks.Ties}`);
+            console.log(result);
+
+            "><img src=" Img/images.png" class="s-img"></button>
+
+
+
+
+
+
+
+                <script>
+                    let result = '';
+
+                    const getMarks = JSON.parse(localStorage.getItem('getMarks'));
+
+
+                    console.log();
+
+                    let computerMove = '';
+
+                    function pickComptermove() {
+                        let randomNumber = Math.random();
+                        if (randomNumber >= 0 && randomNumber < 1 / 3) {
+                            computerMove = 'Rock';
+                        } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+                            computerMove = 'Paper';
+                        } else if (randomNumber >= 2 / 3 && randomNumber < 3) {
+                            computerMove = 'Scissers';
+                        }
+                    }
+
+                    localStorage.setItem('getMarks', JSON.stringify(getMarks));
+
+
+
+                </script>
+        </div>
+        <div class="r-button">
+            <button class="reset" onclick="
+
+            getMarks.Wins=0;
+            getMarks.Losses=0;
+            getMarks.Ties=0;
+    
+            alert('Wins:0 Losses:0 Ties:0')
+    
+            ">Reset</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
